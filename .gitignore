@@ -1,0 +1,70 @@
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Python bytecode / caches
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+.venv*/
+.venv312/
+work-env/
+
+# Environment files / secrets
+.env
+.env.*
+
+# Databases (local only)
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Alembic migrations: generated on server only
+alembic/versions/
+
+# Test / Coverage
+.pytest_cache/
+.hypothesis/
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Docker (policy: do not commit Docker artifacts)
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+docker-compose.*
+.dockerignore
+.docker/
+
+alembic/versions/*
+app/uploads/*
+/venv
