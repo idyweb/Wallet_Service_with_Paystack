@@ -4,17 +4,17 @@ A backend wallet service with Paystack payment integration, JWT authentication, 
 
 ## Features
 
-- ✅ Google OAuth 2.0 authentication with JWT tokens
-- ✅ Wallet creation and balance management
-- ✅ Paystack deposit integration with webhook verification
-- ✅ Wallet-to-wallet transfers (atomic transactions)
-- ✅ Transaction history tracking
-- ✅ API key system for programmatic access
-- ✅ Permission-based access control (deposit, transfer, read)
-- ✅ API key expiration and rollover
-- ✅ Maximum 5 active API keys per user
-- ✅ Idempotent webhook processing
-- ✅ Dual authentication: JWT or API keys
+- Google OAuth 2.0 authentication with JWT tokens
+- Wallet creation and balance management
+- Paystack deposit integration with webhook verification
+- Wallet-to-wallet transfers (atomic transactions)
+- Transaction history tracking
+- API key system for programmatic access
+- Permission-based access control (deposit, transfer, read)
+- API key expiration and rollover
+- Maximum 5 active API keys per user
+- Idempotent webhook processing
+- Dual authentication: JWT or API keys
 
 ## Tech Stack
 
@@ -309,14 +309,14 @@ Paystack test docs: https://paystack.com/docs/payments/test-payments/
 
 ## Security Features
 
-- ✅ Paystack webhook signature verification
-- ✅ JWT token expiration (7 days default)
-- ✅ API key hashing (SHA256)
-- ✅ Permission-based access control
-- ✅ Idempotent transaction processing
-- ✅ Atomic wallet transfers (database transactions)
-- ✅ Insufficient balance checks
-- ✅ CORS middleware configuration
+- Paystack webhook signature verification
+- JWT token expiration (7 days default)
+- API key hashing (SHA256)
+- Permission-based access control
+- Idempotent transaction processing
+- Atomic wallet transfers (database transactions)
+- Insufficient balance checks
+- CORS middleware configuration
 
 ## Error Handling
 
