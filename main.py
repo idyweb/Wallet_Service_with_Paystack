@@ -6,7 +6,10 @@ from api.v1.routes import auth, api_key, wallet
 app = FastAPI(
     title="Wallet Service API",
     description="Backend wallet service with Paystack integration",
-    version="1.0.0"
+    version="1.0.0",
+    swagger_ui_parameters={
+        "persistAuthorization": True
+    }
 )
 
 # CORS middleware

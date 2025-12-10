@@ -58,13 +58,15 @@ coverage.xml
 *.py,cover
 
 # Docker (policy: do not commit Docker artifacts)
-Dockerfile
-Dockerfile.*
-docker-compose.yml
-docker-compose.*
-.dockerignore
-.docker/
+# Dockerfile
+# Dockerfile.*
+# docker-compose.yml
+# docker-compose.*
+# .dockerignore
+# .docker/
 
 alembic/versions/*
 app/uploads/*
 /venv
+cloud-run.env
+command.md

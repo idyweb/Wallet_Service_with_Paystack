@@ -16,12 +16,33 @@ router = APIRouter(prefix="/wallet", tags=["Wallet"])
 
 
 class DepositRequest(BaseModel):
-    amount: int  # Amount in kobo
+    amount: int
+    
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "amount": 5000 # amount in kobo
+                }
+            ]
+        }
+    }
 
 
 class TransferRequest(BaseModel):
     wallet_number: str
-    amount: int  # Amount in kobo
+    amount: int
+    
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "wallet_number": "4566678954356",
+                    "amount": 3000 #amount in kobo
+                }
+            ]
+        }
+    }
 
 
 @router.post("/deposit")

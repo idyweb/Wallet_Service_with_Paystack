@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List
 
+
 from api.db.database import get_db
 from api.v1.models.api_key import APIKey
 from api.v1.models.user import User
@@ -18,12 +19,35 @@ router = APIRouter(prefix="/keys", tags=["API Keys"])
 class CreateAPIKeyRequest(BaseModel):
     name: str
     permissions: List[str]
-    expiry: str  # 1H, 1D, 1M, 1Y
+    expiry: str
+    
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "name": "test-key",
+                    "permissions": ["deposit", "transfer", "read"],
+                    "expiry": "1D"
+                }
+            ]
+        }
+    }
 
 
 class RolloverAPIKeyRequest(BaseModel):
     expired_key_id: str
     expiry: str
+    
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "expired_key_id": "550e8400-e29b-41d4-a716-446655440000",
+                    "expiry": "1M"
+                }
+            ]
+        }
+    }
 
 
 @router.post("/create")

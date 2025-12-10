@@ -1,12 +1,10 @@
 fastapi
-SQLAlchemy
-httpx
-Pyjwt
-
 uvicorn[standard]
+sqlalchemy
 psycopg2-binary
 python-dotenv
-passlib[bcrypt]
+httpx
+pyjwt
 python-multipart
 alembic
 pydantic[email]

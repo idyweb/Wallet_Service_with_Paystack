@@ -1,4 +1,5 @@
 from fastapi import Header, HTTPException, Depends
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 from typing import Optional
 import uuid
@@ -9,16 +10,17 @@ from api.utils.api_key import verify_api_key
 from api.v1.models.user import User
 from api.v1.models.api_key import APIKey
 
+security = HTTPBearer(auto_error=False)
 
 async def get_current_user_from_jwt(
-        authorization: Optional[str] = Header(None),
+        credentials: Optional[HTTPAuthorizationCredentials] = Depends(security),
         db: Session = Depends(get_db)
 ) -> Optional[User]:
     """Extract user from JWT token"""
-    if not authorization or not authorization.startswith("Bearer "):
+    if not credentials:
         return None
     
-    token = authorization.replace("Bearer ", "")
+    token = credentials.credentials
     payload = verify_jwt_token(token)
     
     if not payload:
@@ -30,6 +32,7 @@ async def get_current_user_from_jwt(
     
     user = User.fetch_one(db, id=uuid.UUID(user_id))
     return user
+
 
 
 async def get_current_user_from_api_key(
